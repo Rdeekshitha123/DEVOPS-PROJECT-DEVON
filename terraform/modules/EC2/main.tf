@@ -15,7 +15,7 @@ usermod -aG docker ec2-user
 
 EOF
     tags = {
-        name = "my_ec2"
+        name = "my-ec2"
     }
 
 }
