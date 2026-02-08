@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: docker.io/${{ secrets.DOCKER_USERNAME }}/devops-prg-app:latest
+          tags: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/devops-prg-app:latest
 
   infrastructure-deploy:
     runs-on: ubuntu-latest
