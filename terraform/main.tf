@@ -17,4 +17,12 @@ module "lb" {
     subnet_ids  = module.vpc.subnets
     instance_id = module.ec2.instance_id
 }
-
+terraform {
+  backend "s3" {
+    bucket         = "mystate001"
+    region         = "us-east-1"
+    key            = "statefile/terraform.tfstate"
+    dynamodb_table = "mytable"
+    encrypt        = true
+  }
+}
