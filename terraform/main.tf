@@ -14,7 +14,7 @@ module "ec2" {
 module "lb" {
     source = "./modules/LB"
     vpc_id      = module.vpc.my_vpc_id
-    subnet_ids  = module.vpc.subnets
+    subnets  = module.vpc.subnets
     instance_id = module.ec2.instance_id
 }
 terraform {
