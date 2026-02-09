@@ -1,7 +1,6 @@
 resource "aws_instance" "my_ec2" {
     instance_type = var.my_instance_type
     ami = data.aws_ami.amazon_linux.id
-     key_name = aws_key_pair.my_ec2_key.key_name
     subnet_id = var.subnet_id
     vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
 
@@ -33,10 +32,7 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_key_pair" "my_ec2_key" {
-  key_name   = "my-ec2-key"
-  public_key = file("~/.ssh/my-ec2-key.pub")
-}
+
 
 resource "aws_security_group" "allow_ssh_http" {
     name = "allow-ssh"
