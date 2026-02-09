@@ -14,7 +14,7 @@ resource "aws_lb_target_group" "my_tg" {
     protocol = "HTTP"
     target_type = "instance"
     health_check {
-        enabled = true
+        enabled = false
         interval = 30
         port = 80
         protocol = "HTTP"
