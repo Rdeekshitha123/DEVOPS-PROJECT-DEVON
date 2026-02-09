@@ -4,7 +4,7 @@ resource "aws_lb" "my_alb" {
     subnets = var.subnets
     security_groups = [aws_security_group.alb_sg.id]
     tags = {
-        name = "my-alb"
+        Name = "my-alb"
     } 
 }
 
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "my_tg" {
         unhealthy_threshold = 2 
     }
 tags = {
-    name = "my_tg"
+    Name = "my_tg"
 }
 }
 
@@ -33,7 +33,7 @@ resource "aws_lb_target_group_attachment" "my_lb_tg" {
     target_group_arn = aws_lb_target_group.my_tg.arn
     target_id = var.instance_id
     tags = {
-        name = "my-lb-tg"
+        Name = "my-lb-tg"
     }
 }
 

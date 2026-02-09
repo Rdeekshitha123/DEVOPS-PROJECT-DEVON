@@ -1,7 +1,7 @@
 resource "aws_instance" "my_ec2" {
     instance_type = var.my_instance_type
     ami = data.aws_ami.amazon_linux.id
-     key_name = aws_key_pair.my_ec2_key.my-ec2-key
+     key_name = aws_key_pair.my_ec2_key.key_name
     subnet_id = var.subnet_id
     vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
 
@@ -12,10 +12,9 @@ yum install -y docker
 systemctl start docker
 systemctl enable docker
 usermod -aG docker ec2-user
-
 EOF
     tags = {
-        name = "my-ec2"
+        Name = "my-ec2"
     }
 
 }
@@ -34,7 +33,7 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_key_pair" "my_ec2-key" {
+resource "aws_key_pair" "my_ec2_key" {
   key_name   = "my-ec2-key"
   public_key = file("~/.ssh/my-ec2-key.pub")
 }
@@ -61,6 +60,6 @@ resource "aws_security_group" "allow_ssh_http" {
         cidr_blocks = ["0.0.0.0/0"]
     }
     tags = {
-        name = "allow_ssh_http"
+        Name = "allow_ssh_http"
     }
 }
