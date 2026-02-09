@@ -8,7 +8,7 @@ module "ec2" {
     source = "./modules/EC2"
     vpc_id = module.vpc.my_vpc_id
     subnet_id = module.vpc.subnets[0]
-    docker_username = var.docker_username
+    
 }
 
 module "lb" {
