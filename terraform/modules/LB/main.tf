@@ -32,9 +32,7 @@ tags = {
 resource "aws_lb_target_group_attachment" "my_lb_tg" {
     target_group_arn = aws_lb_target_group.my_tg.arn
     target_id = var.instance_id
-    tags = {
-        Name = "my-lb-tg"
-    }
+    
 }
 
 resource "aws_lb_listener" "my_alb_listener" {
