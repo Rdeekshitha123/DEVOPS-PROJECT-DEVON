@@ -19,10 +19,11 @@ module "lb" {
 }
 terraform {
   backend "s3" {
-    bucket         = "mystate002"
-    region         = "us-east-1"
-    key            = "statefile/terraform.tfstate"
-    dynamodb_table = "mytable"
+    bucket         = "your-tf-state-bucket"
+    key            = "global/terraform.tfstate"
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-locks"
     encrypt        = true
   }
 }
+
