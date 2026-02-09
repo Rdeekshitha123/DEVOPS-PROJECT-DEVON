@@ -19,7 +19,7 @@ module "lb" {
 }
 terraform {
   backend "s3" {
-    bucket         = "mystate001"
+    bucket         = "mystate002"
     region         = "us-east-1"
     key            = "statefile/terraform.tfstate"
     dynamodb_table = "mytable"
