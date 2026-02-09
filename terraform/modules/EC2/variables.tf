@@ -4,6 +4,6 @@ variable "my_instance_type" {
 variable "vpc_id" {}
 
 variable "subnet_id" {}
-variable "docker_username" {
+variable "dockerhub_username" {
     type = string
 }
