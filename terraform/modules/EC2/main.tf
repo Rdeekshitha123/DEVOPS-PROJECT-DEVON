@@ -13,7 +13,8 @@ systemctl enable docker
 usermod -aG docker ec2-user
 EOF
     tags = {
-        Name = "my-ec2"
+        Name = "my-ec2" 
+        
     }
 
 }
