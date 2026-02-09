@@ -74,7 +74,7 @@ resource "aws_route_table" "my_rt_2" {
         cidr_block = "0.0.0.0/0"
         nat_gateway_id = aws_nat_gateway.my_nat.id
     }
-    tags  {
+    tags = {
         Name = "my-rt-2"
     }
 }
