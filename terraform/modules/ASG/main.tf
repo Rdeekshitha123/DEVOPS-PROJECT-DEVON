@@ -43,8 +43,8 @@ resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
 
   min_size         = 1
-  max_size         = 3
-  desired_capacity = 1
+  max_size         = 5
+  desired_capacity = 2
 
   vpc_zone_identifier = [var.subnet_id]
 
