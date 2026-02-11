@@ -11,6 +11,8 @@ yum install -y docker
 systemctl start docker
 systemctl enable docker
 usermod -aG docker ec2-user
+docker image pull deekshithar1307/devops-prg-app
+docker container run -d --name devops-prg-app -p 80:80 deekshithar1307/devops-prg-app
 EOF
     tags = {
         Name = "my-ec2" 
