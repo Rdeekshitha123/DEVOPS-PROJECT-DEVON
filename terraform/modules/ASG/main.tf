@@ -3,7 +3,7 @@ resource "aws_launch_template" "instance_template" {
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = var.my_instance_type
   vpc_security_group_ids = [var.asg_instance_sg]
-  user_data = <<-EOF
+  user_data = base64encode(<<-EOF
 #!/bin/bash
 yum update -y
 yum install -y docker
@@ -13,6 +13,7 @@ usermod -aG docker ec2-user
 docker pull deekshithar1307/devops-prg-app:latest
 docker container run -d --name devops-prg-app -p 80:80 deekshithar1307/devops-prg-app:latest
 EOF
+  )
   
   tag_specifications {
     resource_type = "instance"
