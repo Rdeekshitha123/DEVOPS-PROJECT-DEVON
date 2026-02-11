@@ -8,3 +8,7 @@ output "instance_public_ip" {
 output "instance_private_ip" {
   value = aws_instance.my_ec2.private_ip
 }
+
+output "asg_instance_sg" {
+  value = aws_security_group.allow_ssh_http.id
+}
