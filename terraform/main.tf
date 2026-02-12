@@ -15,7 +15,7 @@ module "lb" {
     source = "./modules/LB"
     vpc_id      = module.vpc.my_vpc_id
     subnets  = module.vpc.public_subnets
-    instance_id = module.ec2.instance_id
+    
 }
 module "asg" {
   source = "./modules/ASG"
