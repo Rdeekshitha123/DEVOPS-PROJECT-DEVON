@@ -52,7 +52,6 @@ resource "aws_autoscaling_group" "my_asg" {
   min_size         = 1
   max_size         = 3
   desired_capacity = 2
-target_group_arns   = var.my_tg
 
   vpc_zone_identifier = var.subnet_id
 

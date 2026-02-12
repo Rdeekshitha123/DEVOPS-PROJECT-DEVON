@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"asg","Source":"./modules/ASG","Dir":"modules/ASG"},{"Key":"ec2","Source":"./modules/EC2","Dir":"modules/EC2"},{"Key":"lb","Source":"./modules/LB","Dir":"modules/LB"},{"Key":"vpc","Source":"./modules/VPC","Dir":"modules/VPC"}]}
