@@ -52,7 +52,7 @@ resource "aws_autoscaling_group" "my_asg" {
   min_size         = 1
   max_size         = 3
   desired_capacity = 2
-target_group_arns   = [var.my_tg]
+target_group_arns   = var.my_tg
 
   vpc_zone_identifier = var.subnet_id
 
@@ -71,5 +71,8 @@ target_group_arns   = [var.my_tg]
   }
 }
 
-
+resource "aws_autoscaling_attachment" "asg_to_alb" {
+  autoscaling_group_name = aws_autoscaling_group.my_asg.name
+  lb_target_group_arn   = var.my_tg
+}
   
