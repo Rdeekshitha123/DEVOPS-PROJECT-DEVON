@@ -60,8 +60,8 @@ resource "aws_autoscaling_group" "my_asg" {
     version = "$Latest"
   }
 
-  health_check_type         = "ELB"
-  health_check_grace_period = 600
+  health_check_type         = "EC2"
+  health_check_grace_period = 900
 
   tag {
     key                 = "Name"
