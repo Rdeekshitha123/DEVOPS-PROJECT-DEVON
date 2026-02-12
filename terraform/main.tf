@@ -20,7 +20,7 @@ module "lb" {
 module "asg" {
   source = "./modules/ASG"
   asg_instance_sg = module.ec2.asg_instance_sg
-  subnet_id = module.vpc.subnets[0]
+  subnet_id = module.vpc.subnets
   my_tg = module.lb.my_tg
 } 
 terraform {
