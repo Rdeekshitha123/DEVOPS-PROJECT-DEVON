@@ -5,14 +5,20 @@ resource "aws_launch_template" "instance_template" {
   vpc_security_group_ids = [var.asg_instance_sg]
   user_data = base64encode(<<-EOF
 #!/bin/bash
+
 yum update -y
 yum install -y docker
+echo "Docker installed"
 systemctl start docker
+echo "Docker daemon started"
 systemctl enable docker
-sleep 30
+sleep 60
+echo "Sleep completed, pulling image..."
 usermod -aG docker ec2-user
 docker pull deekshitha/devops-prg-app:latest
+echo "Image pulled successfully"
 docker container run -d --name devops-prg-app -p 80:80 deekshitha/devops-prg-app:latest
+echo "Container started successfully"
 EOF
   )
   
