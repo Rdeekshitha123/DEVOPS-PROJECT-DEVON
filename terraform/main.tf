@@ -19,9 +19,10 @@ module "lb" {
 }
 module "asg" {
   source = "./modules/ASG"
-  asg_instance_sg = module.ec2.asg_instance_sg
   subnet_id = module.vpc.private_subnets
+  vpc_id      = module.vpc.my_vpc_id
   my_tg = module.lb.my_tg
+  alb_sg_id = module.lb.alb_sg
 } 
 terraform {
   backend "s3" {
