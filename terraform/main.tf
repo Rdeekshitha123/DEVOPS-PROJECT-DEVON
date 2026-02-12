@@ -23,6 +23,7 @@ module "asg" {
   vpc_id      = module.vpc.my_vpc_id
   my_tg = module.lb.my_tg
   alb_sg_id = module.lb.alb_sg
+  nat_gateway_id = module.lb.nat_gateway_id
 } 
 terraform {
   backend "s3" {

@@ -42,7 +42,7 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
-
+   depends_on = [var.nat_gateway_id]
   min_size         = 1
   max_size         = 1
   desired_capacity = 1
@@ -56,7 +56,7 @@ resource "aws_autoscaling_group" "my_asg" {
   }
 
   health_check_type         = "ELB"
-  health_check_grace_period = 1200
+  health_check_grace_period = 1600
 
   tag {
     key                 = "Name"
