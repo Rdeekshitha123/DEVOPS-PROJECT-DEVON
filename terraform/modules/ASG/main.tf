@@ -44,8 +44,8 @@ resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
 
   min_size         = 1
-  max_size         = 5
-  desired_capacity = 2
+  max_size         = 1
+  desired_capacity = 1
   target_group_arns = [var.my_tg]
 
   vpc_zone_identifier = var.subnet_id
@@ -56,7 +56,7 @@ resource "aws_autoscaling_group" "my_asg" {
   }
 
   health_check_type         = "ELB"
-  health_check_grace_period = 900
+  health_check_grace_period = 1200
 
   tag {
     key                 = "Name"
