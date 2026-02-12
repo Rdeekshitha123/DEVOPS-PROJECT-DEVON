@@ -12,4 +12,6 @@ variable "vpc_id" {
 variable "alb_sg_id" {
     type = string
 }
-variable "nat_gateway_id" {}
+variable "nat_gateway_id" {
+    type = string
+}
