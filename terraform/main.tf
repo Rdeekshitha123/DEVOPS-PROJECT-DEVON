@@ -22,7 +22,7 @@ module "asg" {
   asg_instance_sg = module.ec2.asg_instance_sg
   subnet_id = module.vpc.subnets[0]
   my_tg = module.lb.my_tg
-}
+} 
 terraform {
   backend "s3" {
     bucket         = "mystate002"
