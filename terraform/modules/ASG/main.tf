@@ -67,3 +67,4 @@ resource "aws_autoscaling_attachment" "asg_to_alb" {
   autoscaling_group_name = aws_autoscaling_group.my_asg.name
   lb_target_group_arn   = var.my_tg
 }
+  
