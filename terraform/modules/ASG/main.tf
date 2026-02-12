@@ -8,17 +8,17 @@ resource "aws_launch_template" "instance_template" {
 
 yum update -y
 yum install -y docker
-echo "Docker installed"
+
 systemctl start docker
-echo "Docker daemon started"
+
 systemctl enable docker
 sleep 60
-echo "Sleep completed, pulling image..."
+
 usermod -aG docker ec2-user
-docker pull deekshitha/devops-prg-app:latest
-echo "Image pulled successfully"
-docker container run -d --name devops-prg-app -p 80:80 deekshitha/devops-prg-app:latest
-echo "Container started successfully"
+docker pull deekshithar1307/devops-prg-app:latest
+
+docker container run -d --name devops-prg-app -p 80:80 deekshithar1307/devops-prg-app:latest
+
 EOF
   )
   
