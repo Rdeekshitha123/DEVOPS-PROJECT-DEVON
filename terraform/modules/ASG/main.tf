@@ -9,6 +9,7 @@ yum update -y
 yum install -y docker
 systemctl start docker
 systemctl enable docker
+sleep 30
 usermod -aG docker ec2-user
 docker pull deekshithar1307/devops-prg-app:latest
 docker container run -d --name devops-prg-app -p 80:80 deekshithar1307/devops-prg-app:latest
@@ -54,7 +55,7 @@ resource "aws_autoscaling_group" "my_asg" {
   }
 
   health_check_type         = "EC2"
-  health_check_grace_period = 300
+  health_check_grace_period = 600
 
   tag {
     key                 = "Name"
