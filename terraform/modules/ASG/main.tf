@@ -53,15 +53,15 @@ resource "aws_autoscaling_group" "my_asg" {
   max_size         = 3
   desired_capacity = 2
 
-  vpc_zone_identifier = [var.subnet_id]
+  vpc_zone_identifier = var.subnet_id
 
   launch_template {
     id      = aws_launch_template.instance_template.id
     version = "$Latest"
   }
 
-  health_check_type         = "ELB"
-  health_check_grace_period = 600
+  health_check_type         = "EC2"
+  health_check_grace_period = 1200
 
   tag {
     key                 = "Name"
