@@ -51,7 +51,11 @@ resource "aws_autoscaling_group" "my_asg" {
 
   min_size         = 1
   max_size         = 3
+<<<<<<< HEAD
   desired_capacity = 2
+=======
+  desired_capacity = 1
+>>>>>>> parent of 1ba21d4 (change44)
 
   vpc_zone_identifier = var.subnet_id
 
