@@ -52,6 +52,7 @@ resource "aws_autoscaling_group" "my_asg" {
   min_size         = 1
   max_size         = 3
   desired_capacity = 2
+target_group_arns   = var.my_tg
 
   vpc_zone_identifier = var.subnet_id
 
@@ -60,8 +61,8 @@ resource "aws_autoscaling_group" "my_asg" {
     version = "$Latest"
   }
 
-  health_check_type         = "EC2"
-  health_check_grace_period = 900
+  health_check_type         = "ELB"
+  health_check_grace_period = 600
 
   tag {
     key                 = "Name"
@@ -70,8 +71,5 @@ resource "aws_autoscaling_group" "my_asg" {
   }
 }
 
-resource "aws_autoscaling_attachment" "asg_to_alb" {
-  autoscaling_group_name = aws_autoscaling_group.my_asg.name
-  lb_target_group_arn   = var.my_tg
-}
+
   
