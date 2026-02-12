@@ -70,7 +70,7 @@ resource "aws_autoscaling_attachment" "asg_to_alb" {
 }
 
 resource "aws_security_group" "asg_sg" {
-    name = "asg_sg"
+    name = "asg_instance_sg"
     vpc_id = var.vpc_id
     ingress{
         from_port = 22
