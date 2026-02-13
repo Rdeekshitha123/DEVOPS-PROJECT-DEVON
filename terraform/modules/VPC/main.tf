@@ -95,7 +95,7 @@ resource "aws_route_table" "my_rt_2" {
 
 resource "aws_route_table_association" "rt_asso_2" {
     subnet_id = aws_subnet.subnet_2.id
-    route_table_id = aws_route_table.my_rt_1.id
+    route_table_id = aws_route_table.my_rt_2.id
     
 }
 
