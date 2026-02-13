@@ -73,7 +73,7 @@ resource "aws_nat_gateway" "my_nat" {
 }
 
 resource "aws_subnet" "subnet_2" {
-      cidr_block = "10.0.2.0/24"
+      cidr_block = "10.0.5.0/24"
     vpc_id = aws_vpc.my_vpc.id
     availability_zone = "us-east-1b"
     map_public_ip_on_launch = false
@@ -95,7 +95,7 @@ resource "aws_route_table" "my_rt_2" {
 
 resource "aws_route_table_association" "rt_asso_2" {
     subnet_id = aws_subnet.subnet_2.id
-    route_table_id = aws_route_table.my_rt_2.id
+    route_table_id = aws_route_table.my_rt_1.id
     
 }
 
