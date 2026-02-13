@@ -10,7 +10,7 @@ yum install -y docker
 systemctl start docker
 systemctl enable docker
 usermod -aG docker ec2-user
-sleep 30
+sleep 5
 docker pull deekshithar1307/devops-prg-app
 docker container run -d --name devops-prg-app -p 80:80 deekshithar1307/devops-prg-app
 EOF
@@ -43,6 +43,7 @@ data "aws_ami" "amazon_linux" {
 resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
   depends_on = [var.nat_gateway_id]
+  wait_for_capacity_timeout = "0"
   min_size         = 1
   max_size         = 1
   desired_capacity = 1
@@ -56,7 +57,7 @@ resource "aws_autoscaling_group" "my_asg" {
   }
 
   health_check_type         = "ELB"
-  health_check_grace_period = 1600
+  health_check_grace_period = 300
 
   tag {
     key                 = "Name"

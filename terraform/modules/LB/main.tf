@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "my_tg" {
         interval = 30
         port = "traffic-port"
         protocol = "HTTP"
-        path = "/health"
+        path = "/"
         matcher = "200"
         timeout = 5
         healthy_threshold = 2

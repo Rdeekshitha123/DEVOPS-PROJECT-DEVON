@@ -98,3 +98,16 @@ resource "aws_route_table_association" "rt_asso_2" {
     route_table_id = aws_route_table.my_rt_2.id
     
 }
+
+resource "aws_subnet" "subnet_4" {
+  vpc_id            = aws_vpc.my_vpc.id
+  cidr_block        = "10.0.4.0/24"
+  availability_zone = "us-east-1d"          
+  map_public_ip_on_launch = false
+  tags = { Name = "private-subnet-4" }
+}
+
+resource "aws_route_table_association" "rt_asso_4" {
+  subnet_id      = aws_subnet.subnet_4.id
+  route_table_id = aws_route_table.my_rt_2.id
+}
