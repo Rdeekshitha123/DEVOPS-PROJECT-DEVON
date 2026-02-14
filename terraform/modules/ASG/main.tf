@@ -42,7 +42,6 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
-  depends_on = [var.nat_gateway_id]
   wait_for_capacity_timeout = "0"
   min_size         = 1
   max_size         = 1
