@@ -44,8 +44,8 @@ resource "aws_autoscaling_group" "my_asg" {
   name = "my-asg"
   wait_for_capacity_timeout = "0"
   min_size         = 1
-  max_size         = 1
-  desired_capacity = 1
+  max_size         = 5
+  desired_capacity = 3
   target_group_arns = [var.my_tg]
 
   vpc_zone_identifier = var.subnet_id
