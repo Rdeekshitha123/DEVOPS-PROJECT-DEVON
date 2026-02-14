@@ -75,7 +75,7 @@ resource "aws_nat_gateway" "my_nat" {
 resource "aws_subnet" "subnet_2" {
       cidr_block = "10.0.5.0/24"
     vpc_id = aws_vpc.my_vpc.id
-    availability_zone = "us-east-1b"
+    availability_zone = "us-east-1a"
     map_public_ip_on_launch = false
     tags = {
         Name = "subnet-2"
@@ -102,7 +102,7 @@ resource "aws_route_table_association" "rt_asso_2" {
 resource "aws_subnet" "subnet_4" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "10.0.4.0/24"
-  availability_zone = "us-east-1d"          
+  availability_zone = "us-east-1c"          
   map_public_ip_on_launch = false
   tags = { Name = "private-subnet-4" }
 }
