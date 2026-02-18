@@ -1,5 +1,5 @@
 module "my_prg_resources" {
-    source = "./modules/*"
+    source = "./modules/"
 }
 
 terraform {
