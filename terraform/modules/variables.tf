@@ -12,13 +12,7 @@ variable "vpc_id" {
 variable "alb_sg_id" {
     type = string
 }
-variable "my_instance_type" {
-    default = "t3.micro"
-}
-variable "vpc_id" {}
 
-variable "subnet_id" {}
 variable "subnets" {}
-variable "vpc_id" {}
-variable "subnets" {}
-variable "vpc_id" {}
+variable "alb_sg" {}
+variable "lb_sg" {}
