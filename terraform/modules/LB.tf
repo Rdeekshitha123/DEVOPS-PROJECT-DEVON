@@ -1,7 +1,7 @@
 resource "aws_lb" "my_alb" {
     name = "my-alb"
     load_balancer_type = "application"
-    subnets = var.subnets
+    subnets = [aws_subnet.subnet_1.id, aws_subnet.subnet_3.id]
     security_groups = [aws_security_group.alb_sg.id]
     tags = {
         Name = "my-alb"
@@ -9,7 +9,7 @@ resource "aws_lb" "my_alb" {
 }
 
 resource "aws_lb_target_group" "my_tg" {
-    vpc_id = var.vpc_id
+    vpc_id = aws_vpc.my_vpc.id
     port = 80
     protocol = "HTTP"
     target_type = "instance"

@@ -35,9 +35,9 @@ resource "aws_autoscaling_group" "my_asg" {
   min_size         = 1
   max_size         = 5
   desired_capacity = 3
-  target_group_arns = [var.my_tg]
+  target_group_arns = [aws_lb_target_group.my_tg.arn]
 
-  vpc_zone_identifier = var.subnet_id
+  vpc_zone_identifier = [aws_subnet.subnet_2.id, aws_subnet.subnet_4.id]
 
   launch_template {
     id      = aws_launch_template.instance_template.id
