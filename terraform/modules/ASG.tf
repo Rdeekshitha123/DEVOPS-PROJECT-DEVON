@@ -3,7 +3,7 @@ resource "aws_launch_template" "instance_template" {
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = var.my_instance_type
   vpc_security_group_ids = [aws_security_group.asg_sg.id]
-  user_data = base64encode(templatefile("${path.module}/userdata.tftpl"))
+  user_data = base64encode(templatefile("${path.module}/userdata.tftpl", {}))
   
   tag_specifications {
     resource_type = "instance"
