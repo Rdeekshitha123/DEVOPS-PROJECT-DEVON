@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Creating a file for health check" > /healthcheck.txt
 yum update -y
 yum install -y docker
 systemctl start docker
