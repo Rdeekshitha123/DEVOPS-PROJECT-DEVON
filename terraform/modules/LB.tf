@@ -15,10 +15,10 @@ resource "aws_lb_target_group" "my_tg" {
     target_type = "instance"
     health_check {
         enabled = true
-        interval = 60
+        interval = 500
         port = "traffic-port"
         protocol = "HTTP"
-        path = "/healthcheck.txt"
+        path = "/"
         matcher = "200"
         timeout = 30
         healthy_threshold = 2
