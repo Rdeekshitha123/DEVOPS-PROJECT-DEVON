@@ -1,4 +1,4 @@
-DevOps Infrastructure Project
+AWS DevOps Stack: Terraform + Docker + GitHub Actions Automation
 
 📋 Project Overview
 
